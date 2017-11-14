@@ -1,0 +1,18 @@
+@import "utilities";
+.container{
+	width: 100%;
+	min-width: 320px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	position: relative;
+	font-size: 0;
+}
+.row{
+	width: 100%;
+	display: inline-block;
+	font-size: 0;
+	height: auto;
+}
+.flex{
+	display: flex;
+}

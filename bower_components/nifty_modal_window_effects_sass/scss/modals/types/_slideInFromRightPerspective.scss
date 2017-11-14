@@ -1,0 +1,37 @@
+@if $use-slideInFromRightPerspective == true {
+    /* Effect 18:  Slide from right with perspective on container */
+    .#{$global-ns}-show {
+        &.#{$global-ns}-slideInFromRightPerspective {
+            ~ .container {
+                height: 100%;
+                overflow: hidden;
+            }
+            ~ .#{$global-ns}-overlay {
+                background: rgba(143,27,15,0.8);
+                transition: all 0.5s;
+            }
+            .#{$global-ns}-content {
+                transform: translateX(0);
+                opacity: 1;
+                transition: all 0.5s 0.1s;
+            }
+        }
+    }
+
+    .#{$global-ns}-show.#{$global-ns}-slideInFromRightPerspective ~ .container,
+    .#{$global-ns}-show.#{$global-ns}-slideInFromRightPerspective ~ .#{$global-ns}-overlay {
+        transform-style: preserve-3d;
+        transform-origin: 0% 50%;
+        animation: rotateRightSideFirst 0.5s forwards ease-in;
+    }
+
+    .#{$global-ns}-slideInFromRightPerspective .#{$global-ns}-content {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+
+    @keyframes rotateRightSideFirst {
+        50% { transform: translateZ(-50px) rotateY(5deg); animation-timing-function: ease-out; }
+        100% { transform: translateZ(-200px); }
+    }
+}

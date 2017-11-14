@@ -1,0 +1,38 @@
+$global-ns: md !default;
+
+$perspective-body-bg: #222 !default;
+$perspective-body: 600px !default;
+
+$modal-width: 50% !default;
+$modal-max-width: 630px !default;
+$modal-max-height: 320px !default;
+$modal-zindex: 2000 !default;
+
+$overlay-bg: rgba(143,27,15,0.8) !default;
+$overlay-transition: all 0.3s !default;
+$overlay-opacity: 1 !default;
+$overlay-zindex: 1000 !default;
+
+$content-bg: #e74c3c !default;
+$content-text-color: #fff !default;
+$content-border-radius: 3px !default;
+
+$use-3dHorizontalFlip             : true !default;
+$use-3dRotateFromBottom           : true !default;
+$use-3dRotateInLeft               : true !default;
+$use-3dSign                       : true !default;
+$use-3dSlit                       : true !default;
+$use-3dVerticalFlip               : true !default;
+$use-blur                         : true !default;
+$use-fadeInScaleUp                : true !default;
+$use-fall                         : true !default;
+$use-justMe                       : true !default;
+$use-newspaper                    : true !default;
+$use-sideFall                     : true !default;
+$use-slideInFromBottom            : true !default;
+$use-slideInFromBottomPerspective : true !default;
+$use-slideInFromRight             : true !default;
+$use-slideInFromRightPerspective  : true !default;
+$use-slideInFromTopPerspective    : true !default;
+$use-slideSlickTop                : true !default;
+$use-superScaled                  : true !default;

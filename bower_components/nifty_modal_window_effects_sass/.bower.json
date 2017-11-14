@@ -1,0 +1,32 @@
+{
+  "name": "nifty_modal_window_effects_sass",
+  "version": "1.1.1",
+  "authors": [
+    "nealfennimore <hi@neal.codes>"
+  ],
+  "description": "A set of experimental modal window appearance effects with CSS transitions and animations. From http://tympanus.net/codrops/2013/06/25/nifty-modal-window-effects/",
+  "keywords": [
+    "sass",
+    "scss",
+    "modal"
+  ],
+  "license": "MIT",
+  "homepage": "http://neal.codes",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.1",
+    "commit": "80c71dca77f7334a12c4626e6addedefaf5d339b"
+  },
+  "_source": "https://github.com/nealfennimore/NiftyModalWindowEffectsSass.git",
+  "_target": "^1.1.1",
+  "_originalSource": "nifty-modal-sass",
+  "_direct": true
+}
