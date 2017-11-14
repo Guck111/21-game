@@ -1,5 +1,7 @@
 'use strict';
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 ;(function () {
 	// задание 1
 
@@ -84,7 +86,7 @@
 
 	var num = 1;
 	var row = 1;
-	var leng = 10;
+	var leng = 6;
 
 	for (var i = 0, x = leng; i < x; i++) {
 
@@ -129,7 +131,7 @@
 			}
 		}
 
-		console.log(arr);
+		console.log(arr.join(' '));
 
 		++row;
 	}
@@ -161,8 +163,8 @@
 
 	console.log('задание 7:');
 
-	var arrOneRub = ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
-	    arrOneKop = ['', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
+	var arrOneRub = ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
+	    arrOneKop = ['ноль', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
 	    arrTen = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'],
 	    arrHundred = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
 
@@ -231,4 +233,42 @@
 	var diff = happyBD - date; // разница между днем рождения и сегоднячним днем в миллисек
 
 	console.dir('До Дня Рождения осталось: ' + Math.trunc(diff / oneDay));
+})();
+
+(function () {
+	// фильтр
+
+	console.log('Фильтр:');
+
+	var inp = document.getElementById('filter');
+	var item = document.getElementsByClassName('block__item');
+
+	var items = [].concat(_toConsumableArray(item));
+
+	inp.addEventListener('keyup', function () {
+
+		var lettersInInputArr = inp.value.toUpperCase().split('');
+
+		for (var j = 0; j < items.length; j++) {
+
+			var letters = [].concat(_toConsumableArray(items[j].innerHTML.toUpperCase()));
+
+			if (inp.value.length === 0) {
+
+				for (var i = 0; i < items.length; i++) {
+					items[i].classList.remove('hidden');
+				}
+			} else {
+
+				var lettersInInputStr = lettersInInputArr.join('');
+				var lettersInItemStr = items[j].innerHTML.split('').slice(0, lettersInInputArr.length).join('').toUpperCase();
+
+				if (lettersInInputStr != lettersInItemStr) {
+					items[j].classList.add('hidden');
+				} else {
+					items[j].classList.remove('hidden');
+				}
+			}
+		}
+	});
 })();

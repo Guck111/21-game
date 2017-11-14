@@ -1,0 +1,33 @@
+.filter{
+	display: block;
+	width: 300px;
+	height: 50px;
+    border-bottom: 1px solid #949393;
+    margin: 30px auto;
+    text-transform: uppercase;
+}
+.block{
+	&__list{
+		justify-content:space-between;
+		flex-wrap:wrap;
+	}
+	&__item{
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: green;
+		color: #fff;
+		font-size: 1rem;
+		border-radius: 5px;
+		width: 30%;
+		height: 100px;
+		margin-bottom: 20px;
+		&.hidden{
+			display: none;
+		}
+	}
+	&__empty{
+		width: 30%;
+	}
+}

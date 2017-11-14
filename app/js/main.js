@@ -84,7 +84,7 @@
 
 	let num = 1;
 	let row = 1;
-	let leng = 10;
+	let leng = 6;
 
 	for (let i = 0, x = leng; i < x; i++){
 
@@ -134,7 +134,7 @@
 			}
 		}
 
-		console.log(arr)
+		console.log(arr.join(' '))
 
 		++row
 
@@ -170,8 +170,8 @@
 
 	console.log('задание 7:');
 
-	let arrOneRub = ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
-	arrOneKop = ['', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
+	let arrOneRub = ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
+	arrOneKop = ['ноль', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
 	arrTen = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'],
 	arrHundred = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
 
@@ -244,6 +244,47 @@
 	let diff = happyBD - date; // разница между днем рождения и сегоднячним днем в миллисек
 
 	console.dir('До Дня Рождения осталось: ' + Math.trunc(diff / oneDay));
+
+})();
+
+(() => { // фильтр
+
+	console.log('Фильтр:');
+
+	let inp = document.getElementById('filter');
+	let item = document.getElementsByClassName('block__item');
+
+	let items = [...item];
+
+	inp.addEventListener('keyup', () => {
+
+		let lettersInInputArr = inp.value.toUpperCase().split('');
+
+		for (let j = 0; j < items.length; j++){
+
+			let letters = [...items[j].innerHTML.toUpperCase()];
+
+			if(inp.value.length === 0){
+
+				for (let i = 0; i < items.length; i++){
+					items[i].classList.remove('hidden');
+				}
+
+			} else {
+
+				let lettersInInputStr = lettersInInputArr.join('');
+				let lettersInItemStr = items[j].innerHTML.split('').slice(0, lettersInInputArr.length).join('').toUpperCase();
+
+				if(lettersInInputStr != lettersInItemStr){
+					items[j].classList.add('hidden');
+				} else {
+					items[j].classList.remove('hidden');
+				}
+
+			}
+
+		}
+	})
 
 })();
 
