@@ -166,67 +166,67 @@
 
 })();
 
-(() => { // задание 7
+// (() => { // задание 7
 
-	console.log('задание 7:');
+// 	console.log('задание 7:');
 
-	let arrOneRub = ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
-	arrOneKop = ['ноль', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
-	arrTen = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'],
-	arrHundred = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
+// 	let arrOneRub = ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
+// 	arrOneKop = ['ноль', 'одна', 'две', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
+// 	arrTen = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'],
+// 	arrHundred = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
 
-	let summ = prompt('Введите сумму', '');
+// 	let summ = prompt('Введите сумму', '');
 
-	let rub = 0, kop = 0;
-	let arrRub = [], arrKop = [];
-	let stringRub = '', stringKop = '';
+// 	let rub = 0, kop = 0;
+// 	let arrRub = [], arrKop = [];
+// 	let stringRub = '', stringKop = '';
 
-	function countMoney(summa){
+// 	function countMoney(summa){
 
-		rub = Math.trunc(summa);
-		kop = Math.round((summa - Math.trunc(summa)) * 100);
+// 		rub = Math.trunc(summa);
+// 		kop = Math.round((summa - Math.trunc(summa)) * 100);
 
-	}
+// 	}
 
-	countMoney(summ);
+// 	countMoney(summ);
 
-	if(isNaN(kop) || rub + kop === 0){
+// 	if(isNaN(kop) || rub + kop === 0){
 
-		summ = prompt('Введите правильно! Разделитель точка, после точки только 2 символа!', '');
-		countMoney(summ);
+// 		summ = prompt('Введите правильно! Разделитель точка, после точки только 2 символа!', '');
+// 		countMoney(summ);
 
-	}
+// 	}
 
-	arrRub = String(rub).split('');
-	arrKop = String(kop).split('');
+// 	arrRub = String(rub).split('');
+// 	arrKop = String(kop).split('');
 
-	if(kop < 20){
+// 	if(kop < 20){
 
-		stringKop = arrOneKop[kop];
+// 		stringKop = arrOneKop[kop];
 
-	} else if (kop >= 20 && kop < 100){
+// 	} else if (kop >= 20 && kop < 100){
 
-		stringKop = arrTen[+arrKop[0]] + ' ' + arrOneKop[+arrKop[1]];
+// 		stringKop = arrTen[+arrKop[0]] + ' ' + arrOneKop[+arrKop[1]];
 
-	}
+// 	}
 
-	if(rub < 20){
+// 	if(rub < 20){
 
-		stringRub = arrOneRub[rub];
+// 		stringRub = arrOneRub[rub];
 
-	} else if (rub >= 20 && rub < 100){
+// 	} else if (rub >= 20 && rub < 100){
 
-		stringRub = arrTen[+arrRub[0]] + ' ' + arrOneRub[+arrRub[1]];
+// 		stringRub = arrTen[+arrRub[0]] + ' ' + arrOneRub[+arrRub[1]];
 
-	} else if (rub >= 100){
+// 	} else if (rub >= 100){
 
-		stringRub = arrHundred[+arrRub[0]] + ' ' + arrTen[+arrRub[1]] + ' ' + arrOneRub[+arrRub[2]];
+// 		stringRub = arrHundred[+arrRub[0]] + ' ' + arrTen[+arrRub[1]] + ' ' + arrOneRub[+arrRub[2]];
 
-	}
+// 	}
 
-	console.log(stringRub + ' руб. ' + stringKop + ' коп.');
+// 	console.log(stringRub + ' руб. ' + stringKop + ' коп.');
 
-})();
+// })();
 
 (() => { // задание 8
 
@@ -285,6 +285,70 @@
 
 		}
 	})
+
+})();
+
+// (() => {
+// 	let promise = new Promise((res, rej) => {
+
+// 		let a = Math.floor(Math.random()*10);
+// 		console.log(a)
+
+// 		setTimeout(() => {
+// 			if(a < 5) {
+// 				res()
+// 			} else {
+// 				rej()
+// 			}
+// 		}, 3000)
+// 	});
+// 	console.log(promise)
+// 	promise.then(() => {
+// 		return console.log(2)
+// 	}, () => {
+// 		return console.log(3)
+// 	})  
+// })();
+
+
+
+
+
+(() => {
+
+	new Promise((res, rej) => {
+
+		setTimeout(() => {res()}, Math.floor(Math.random()*1000))
+		setTimeout(() => {rej()}, Math.floor(Math.random()*1000))
+
+
+	})
+	.then((str) => {
+		console.log('str1')
+	},
+	(str) => {
+		console.log('err')
+	})
+	.then((str) => {
+		return new Promise((res, rej) => {
+
+			setTimeout(() => {res('ok')}, Math.floor(Math.random()*1000))
+			setTimeout(() => {rej()}, Math.floor(Math.random()*1000))
+
+		})
+	})
+	.then((str) => {
+		console.log('str2')
+	})
+	.then((str) => {
+		console.log('str3')
+	})
+	.then((str) => {
+		console.log('str4')
+	})
+	.catch((str) => {
+		console.log('str5')
+	});
 
 })();
 
