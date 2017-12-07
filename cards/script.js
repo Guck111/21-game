@@ -13,7 +13,7 @@ function Cards() {
         'бубны': 'diams'
     };
 
-};
+}
 
 Cards.prototype.calcCardPrice = function (elem, index) { // назначение стоимости карты
 
@@ -51,7 +51,7 @@ Cards.prototype.buildDeck = function () { // сборка колоды
 
         });
     }
-    console.log(desck);
+
     return desck;
 };
 
@@ -79,6 +79,7 @@ Cards.prototype.createCards = function () { // создание карт (HTML)
 function Table(options) {
 
     Cards.apply(this, arguments);
+
     this.persons = options.persons;
     this.places = options.places;
     this.desck = options.desck;
@@ -104,7 +105,7 @@ Table.prototype.shuffle = function () { // перетасовать карты
     }
 
     shuffleArray(this.createCards());
-    console.log(shuffleDesck);
+
     return shuffleDesck;
 
 };
@@ -129,8 +130,9 @@ Table.prototype.placement = function () { // рассадить игроков
         playerPlace.id = `player_${i}`;
         playerPlace.innerHTML =
             `<div class="options">
-                <a href="#" class="more" id="more">Еще</a>
-                <a href="#" class="enough" id="enough">Хватит</a>
+                <a href="#" class="more">Еще</a>
+                <a href="#" class="enough">Хватит</a>
+                <span class="points"></span>
             </div>`;
 
         this.places.appendChild(playerPlace);
@@ -152,7 +154,7 @@ Table.prototype.distribution = function () { // раздать карты
     }
 };
 
-function Game(options) {
+function Game() {
 
     Table.apply(this, arguments);
 
@@ -163,18 +165,20 @@ Game.prototype.constructor = Game;
 
 Game.prototype.countPoints = function () { // подсчет очков
 
-    let temp;
-    let priceCard;
-    let sumPriceCard;
+    let point = document.getElementsByClassName('points');
+    let players = []; // все игроки
+    let points = []; // очки всех игроков
 
     for (let i = 0; i < this.persons; i++) {
 
-        temp = [];
-        priceCard = 0;
-        sumPriceCard = 0;
+        let temp = [];
+        let priceCard = 0;
+        let summCardPoints = 0;
 
         let player = document.getElementById(`player_${i}`);
         let tempPoints = [];
+
+        players.push(player);
 
         for (let i of player.children) {
 
@@ -184,16 +188,10 @@ Game.prototype.countPoints = function () { // подсчет очков
 
                 if (priceCard) {
                     tempPoints.push(priceCard);
+                    summCardPoints += priceCard; // получаем сумму карт на руках
                 }
             }
 
-        }
-
-        let summCardPoints = 0;
-
-        for (let key in tempPoints) {  // получаем сумму карт на руках
-
-            summCardPoints += tempPoints[key];
         }
 
         for (let key in tempPoints) {
@@ -211,19 +209,109 @@ Game.prototype.countPoints = function () { // подсчет очков
             }
         }
 
-        let point = document.createElement('span');
-        point.classList.add('points');
-        point.innerHTML = summCardPoints;
+        point[i].innerText = summCardPoints;
+        points.push(summCardPoints);
 
-        player.firstChild.appendChild(point);
+    }
 
+    return points;
+};
+
+Game.prototype.moreCard = function (player) { // еще карту
+
+    player.appendChild(this.desck.removeChild(this.desck.lastChild));
+    this.countPoints();
+};
+
+Game.prototype.enough = function (enoughBtn) { // хватит карт
+
+    enoughBtn.parentElement.classList.add('enough_cards');
+};
+
+Game.prototype.winner = function () { // определение победителя
+
+    let gamersPoints = this.countPoints();
+
+    for (let i = 0; i < gamersPoints.length; i++) { // с перебором обнуляем очки
+
+        let player = document.getElementById(`player_${i}`);
+
+        if (gamersPoints[i] > 21) {
+
+            console.log(1);
+
+            if (player.classList.contains('winner')) {
+                player.classList.remove('winner');
+            }
+
+            player.classList.add('lost');
+            player.firstChild.classList.add('enough_cards');
+            gamersPoints[i] = 0;
+        }
+
+        if (gamersPoints[i] === 21) {
+
+            console.log(2);
+
+            player.firstChild.classList.add('enough_cards');
+        }
+    }
+
+    let max = gamersPoints[0];
+
+    for (let i = 1; i < gamersPoints.length; ++i) { // находим максимум по очкам
+        if (gamersPoints[i] > max) max = gamersPoints[i];
+    }
+
+    for (let i = 0; i < gamersPoints.length; i++) { // добавляем класс победителю(лям) и проигравшим по очкам
+
+        let player = document.getElementById(`player_${i}`);
+
+        if (gamersPoints[i] != 0 && gamersPoints[i] == max) {
+
+            console.log(3);
+
+            if (player.classList.contains('lost')) {
+                player.classList.remove('lost');
+            }
+
+            player.classList.add('winner');
+
+        } else if (gamersPoints[i] != 0 && gamersPoints[i] != max) {
+
+            console.log(4);
+
+            if (player.classList.contains('winner')) {
+                player.classList.remove('winner');
+            }
+
+            player.classList.add('lost');
+        }
     }
 };
 
-// let table = new Table();
+Game.prototype.endOfGame = function () {
+
+    this.winner();
+
+    let gamersPoints = this.countPoints();
+    let enough = document.getElementsByClassName('enough_cards');
+
+    if (gamersPoints.length === enough.length) {
+
+        for (let i = 0; i < gamersPoints.length; i++) {
+
+            let player = document.getElementById(`player_${i}`);
+
+            player.classList.add('end');
+
+        }
+
+    }
+
+};
 
 let game = new Game({
-    persons: 3,
     places: _deskPlaces,
     desck: _desck
 });

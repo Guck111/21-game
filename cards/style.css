@@ -1,5 +1,4 @@
 body{
-    height: 100vh;
     padding: 0;
     margin: 0;
     font-family:sans-serif;
@@ -8,13 +7,10 @@ ul{
     margin: 0;
     padding: 0;
 }
-.wrapper{
-    width: 100%;
-    height: 100%;
-}
+
 .table{
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background-color: #084D00;
     padding-top: 100px;
 }
@@ -52,9 +48,9 @@ ul{
     content:attr(data-value);
     display: inline-block;
     position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 36px;
+    top: 25px;
+    left: 5px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -93,10 +89,10 @@ ul{
 }
 
 .players {
-    height: 300px;
     width: 100%;
     margin-top: 100px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -104,7 +100,7 @@ ul{
 .player {
     min-height: 250px;
     min-width: 180px;
-    max-width: 300px;
+    max-width: 500px;
     display: block;
     position: relative;
 }
@@ -112,7 +108,7 @@ ul{
 .player .card{
     position: relative;
     display: inline-block;
-    margin-left: -120px;
+    margin-left: -140px;
 }
 
 .player .card .suit{
@@ -178,4 +174,35 @@ ul{
     right: 0;
     color: #fff;
     font-size: 14px;
+}
+
+.enough_cards > a{
+    pointer-events: none;
+    opacity: .5;
+}
+
+.player.winner.end::before {
+    content: 'WINNER!!!';
+    display: inline-block;
+    position: absolute;
+    font-size: 36px;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    color: #084d00;
+    transform: translate(-50%);
+    font-weight: bold;
+}
+
+.player.lost.end::before {
+    content: 'LOOSER!!!';
+    display: inline-block;
+    position: absolute;
+    font-size: 36px;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    color: #f80012;
+    transform: translate(-50%);
+    font-weight: bold;
 }
