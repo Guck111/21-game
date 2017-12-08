@@ -1,3 +1,15 @@
+import Game from './modules/Game';
+
+const _deskPlaces = document.getElementById('players');
+const _desck = document.getElementById('desck');
+
+let game = new Game({
+    places: _deskPlaces,
+    desck: _desck
+});
+
+game.putDesck();
+
 ;(function () {
 
     function dealCards() { // раздать карты

@@ -34,7 +34,7 @@ ul{
 }
 
 .suit{
-    background-image: url('index.jpg');
+    background-image: url('../img/index.jpg');
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
