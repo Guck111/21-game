@@ -1,8 +1,8 @@
 # Игра в 21
 
->[Исходный код](https://guck111.github.io/JSpro/cards/).
+[Исходный код](https://guck111.github.io/JSpro/cards/).
 ***
->[Поиграть можно тут](https://github.com/Guck111/JSpro/tree/master/cards).
+[Поиграть можно тут](https://github.com/Guck111/JSpro/tree/master/cards).
 
 ####
 
