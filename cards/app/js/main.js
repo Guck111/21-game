@@ -110,6 +110,7 @@ game.putDesck();
   }
 
   function moreCard() {
+    // еще карту
     var more = document.getElementsByClassName('more');
 
     var _loop = function _loop(i, x) {
@@ -126,6 +127,7 @@ game.putDesck();
   }
 
   function enoughCard() {
+    // хватит карт
     var enough = document.getElementsByClassName('enough');
 
     if (enough) {
@@ -215,7 +217,8 @@ function (_Table) {
               priceCard = +_i2.getAttribute('data-price');
 
               if (priceCard) {
-                tempPoints.push(priceCard);
+                tempPoints.push(priceCard); // массив из стоимостей всех карт на руках игрока
+
                 summCardPoints += priceCard; // получаем сумму карт на руках
               }
             }
@@ -274,10 +277,10 @@ function (_Table) {
       var gamersPoints = this.countPoints();
 
       for (var i = 0; i < gamersPoints.length; i++) {
-        // с перебором обнуляем очки
         var player = document.getElementById("player_".concat(i));
 
         if (gamersPoints[i] > 21) {
+          // с перебором обнуляем очки и даем class lost
           if (player.classList.contains('winner')) {
             player.classList.remove('winner');
           }
@@ -288,6 +291,7 @@ function (_Table) {
         }
 
         if (gamersPoints[i] === 21) {
+          // если очко, делаем кнопки неактивными (еще, хватит)
           player.firstChild.classList.add('enough_cards');
         }
       }
@@ -378,7 +382,7 @@ function (_Cards) {
     _classCallCheck(this, Table);
 
     _this = _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).call(this));
-    _this.persons = options.persons;
+    _this.persons;
     _this.places = options.places;
     _this.desck = options.desck;
     return _this;
@@ -418,6 +422,8 @@ function (_Cards) {
     key: "placement",
     value: function placement() {
       // рассадить игроков
+      if (this.persons === 0) this.persons = Table.getPersonsDefoult();
+
       for (var i = 0; i < this.persons; i++) {
         var playerPlace = document.createElement('li');
         playerPlace.classList.add('player');
@@ -438,6 +444,11 @@ function (_Cards) {
           player.appendChild(this.desck.removeChild(this.desck.lastChild));
         }
       }
+    }
+  }], [{
+    key: "getPersonsDefoult",
+    value: function getPersonsDefoult() {
+      return 2;
     }
   }]);
 

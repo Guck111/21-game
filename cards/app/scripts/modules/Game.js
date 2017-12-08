@@ -26,7 +26,7 @@ export default class Game extends Table{
                     priceCard = +i.getAttribute('data-price');
 
                     if (priceCard) {
-                        tempPoints.push(priceCard);
+                        tempPoints.push(priceCard); // массив из стоимостей всех карт на руках игрока
                         summCardPoints += priceCard; // получаем сумму карт на руках
                     }
                 }
@@ -71,11 +71,11 @@ export default class Game extends Table{
 
         let gamersPoints = this.countPoints();
 
-        for (let i = 0; i < gamersPoints.length; i++) { // с перебором обнуляем очки
+        for (let i = 0; i < gamersPoints.length; i++) {
 
             let player = document.getElementById(`player_${i}`);
 
-            if (gamersPoints[i] > 21) {
+            if (gamersPoints[i] > 21) { // с перебором обнуляем очки и даем class lost
 
                 if (player.classList.contains('winner')) {
                     player.classList.remove('winner');
@@ -86,7 +86,7 @@ export default class Game extends Table{
                 gamersPoints[i] = 0;
             }
 
-            if (gamersPoints[i] === 21) {
+            if (gamersPoints[i] === 21) { // если очко, делаем кнопки неактивными (еще, хватит)
 
                 player.firstChild.classList.add('enough_cards');
             }

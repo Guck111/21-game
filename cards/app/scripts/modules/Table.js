@@ -1,12 +1,12 @@
 import Cards from './Cards';
 
-export default class Table extends Cards{
+export default class Table extends Cards {
 
     constructor(options) {
 
         super();
 
-        this.persons = options.persons;
+        this.persons;
         this.places = options.places;
         this.desck = options.desck;
 
@@ -46,6 +46,8 @@ export default class Table extends Cards{
 
     placement() { // рассадить игроков
 
+        if(this.persons === 0) this.persons = Table.getPersonsDefoult();
+
         for (let i = 0; i < this.persons; i++) {
 
             let playerPlace = document.createElement('li');
@@ -76,11 +78,8 @@ export default class Table extends Cards{
             }
         }
     }
+
+    static getPersonsDefoult() {
+        return 2;
+    }
 }
-
-
-
-
-
-
-

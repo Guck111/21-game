@@ -34,7 +34,7 @@ game.putDesck();
         };
     }
 
-    function moreCard() {
+    function moreCard() { // еще карту
 
         let more = document.getElementsByClassName('more');
 
@@ -43,14 +43,14 @@ game.putDesck();
             more[i].onclick = function(e) {
 
                 e.preventDefault();
-                game.moreCard(more[i].parentElement.parentElement);
 
+                game.moreCard(more[i].parentElement.parentElement);
                 game.endOfGame();
             }
         }
     }
 
-    function enoughCard() {
+    function enoughCard() { // хватит карт
 
         let enough = document.getElementsByClassName('enough');
 
