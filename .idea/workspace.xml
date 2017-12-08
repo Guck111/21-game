@@ -4,11 +4,6 @@
     <list default="true" id="f47d9f6f-aea9-4f4a-8255-ac57797eefcc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/cards/app/js/main.js" afterPath="$PROJECT_DIR$/cards/app/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/cards/app/js/main.js.map" afterPath="$PROJECT_DIR$/cards/app/js/main.js.map" />
-      <change beforePath="$PROJECT_DIR$/cards/app/scripts/main.js" afterPath="$PROJECT_DIR$/cards/app/scripts/main.js" />
-      <change beforePath="$PROJECT_DIR$/cards/app/scripts/modules/Game.js" afterPath="$PROJECT_DIR$/cards/app/scripts/modules/Game.js" />
-      <change beforePath="$PROJECT_DIR$/cards/app/scripts/modules/Table.js" afterPath="$PROJECT_DIR$/cards/app/scripts/modules/Table.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -271,12 +266,12 @@
       <workItem from="1512550502957" duration="20039000" />
       <workItem from="1512631380423" duration="19661000" />
       <workItem from="1512718321806" duration="3334000" />
-      <workItem from="1512722370523" duration="9748000" />
+      <workItem from="1512722370523" duration="9810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65550000" />
+    <option name="totallyTimeSpent" value="65612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1010" extended-state="0" />
